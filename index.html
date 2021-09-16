@@ -82,11 +82,28 @@
     <td>$2.60</td>
   </tr>
   </table>
+
   <hr>
   <h4>Code Display using HTML</h4>
-            <blockquote>
-              Combinatorics is an area of mathematics primarily concerned with counting, both as a means and an end in obtaining results, and certain properties of finite structures. It is closely related to many other areas of mathematics and has many applications ranging from logic to statistical physics, from evolutionary biology to computer science, etc.
-              The full scope of combinatorics is not universally agreed upon.According to H.J. Ryser, a definition of the subject is difficult because it crosses so many mathematical subdivisions.
-              <a href=""
+  <blockquote>
+    Combinatorics is an area of mathematics primarily concerned with counting, both as a means and an end in obtaining results, and certain properties of finite structures.
+    It is closely related to many other areas of mathematics and has many applications ranging from logic to statistical physics, from evolutionary biology to computer science, etc.
+    <a href="https://en.wikipedia.org/wiki/Combinatorics">Link to the source file</a>
+  </blockquote>
+  <pre>
+    bool next_combination(vector<int>& a, int n) {
+      int k = (int)a.size();
+      for (int i = k - 1; i >= 0; i--) {
+          if (a[i] < n - k + i + 1) {
+              a[i]++;
+              for (int j = i + 1; j < k; j++)
+                  a[j] = a[j - 1] + 1;
+              return true;
+          }
+      }
+      return false;
+  }
+</pre>  
+  
 </body>
 </html>
